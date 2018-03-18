@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        
+        \LARGE{\textbf{The Carbonara Project}}
+        
+        \vspace{0.5cm}
+        Malware research platform and community
+        
+        \vspace{1.5cm}
+        
+        \textbf{WHITEPAPER}
+        
+        \vspace{0.5cm}
+        
+        \textit{Version 0.1} \\
+        \vspace{0.2cm}
+        17th March 2018
+        
+        \vfill
+
+        
+        \vspace{0.8cm}
+
+    \end{center}
+\end{titlepage}
+
+\tableofcontents
+
+
+
+
+\date{\vspace{-5ex}}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Malware research and reverse engineering are hard tasks.\\
+They require a huge amount of technical knowledge, experience and creativity to be effective.\par
+The amount of malicious programs, moreover, is increasing over time. Malwares become cheaper, and the attack surface becomes bigger and bigger.\\
+In Q3 2016 alone, 18 million new malware samples were captured \footnote{Source: https://www.pandasecurity.com/mediacenter/pandalabs/pandalabs-q3/} .\\
+Also, ransomware attacks increased by 36 percent in 2017 \footnote{Source: https://www.symantec.com/security-center/threat-report} and, according to the FBI  \footnote{Source:https://www.fbi.gov/file-repository/ransomware-prevention-and-response-for-cisos.pdf/view}, more than 4,000 ransomware attacks occur every day.\par
+If the main targets of attacks in the past were personal computers and servers, a very high percentage of attacks is now targeting smartphones and IoT devices.\par
+As the number of attacks increases over time, it looks like the number of people working against cyber crimes is not increasing proportionally.\\
+Unfilled cyber security jobs are expected to reach 3.5 million by 2021 \footnote{Source: https://cybersecurityventures.com/jobs/} — compared to about 1 million in 2016.\par
+It is also important to understand that the job of most malware analysts is highly time-sensitive. \par
+From the moment an attack is discovered, it is a race against time to understand how the malware works, find a fix, and apply it as soon as possible to as many vulnerable devices as possible.\par
+
+We have developed a platform to speed up the work of reverse engineers and malware analysts.
+Our main goal is to create an environment in which security experts can thrive, and to empower them with state-of-the-art tools to make their job easier.
+
+
+
+
+\section{The project}
+
+\textit{Carbonara} is, at its core, a platform in which malware analysts can share their work, collaborate, and perform analysis using the tools we provide.\\
+The users can load programs and malwares on our server and our engine will run a certain number of tools to perform static analysis.
+
+Users can add their reports to binaries and to their procedures, as well as comment on them and discuss with other users.\par 
+
+One of the main features of our analysis engine is \textbf{procedure matching}.
+
+What it does is matching similar procedures from different binaries. 
+This is extremely useful: it has in fact being shown multiple times that a lot of different malwares of all categories share a lot of the same functions.\\
+
+What this means is that, if a certain user is reversing a certain function, and that function has already been reversed by another analyst in some other binary, our engine will match the function, giving easy access to the report and explanation for that procedure. \par
+
+We will also provide state-of-the-art machine learning algorithms to perform malware classification. \par 
+
+\textit{Carbonara} is usable both from the web application and from the CLI (\textit{Command line interface}).
+
+
+
+\section{Technical overview}
+
+A more technical explanation of our procedure matching system is available at \textit{https://github.com/Carbonara-Project/Guanciale/wiki/The-matching-system-explained}.
+
+Of course, for each binary we also produce the list of functions and the assembly code for each one on them, getting information from important disassemblers and static analysers such as \textbf{radare2} and \textbf{IDA Pro}.
+
+\par
+
+The machine learning model will instead use a classifier in order to predict whether the loaded binaries are malwares and, if so, what type of malwares they are.
+
+
+
+\section{The community}
+
+The community is the main focus of our vision. \\
+We are deeply convinced that there is not enough sharing of knowledge and information in the cyber-security community, which means that we are not as effective as we could be in stopping and fighting threats and attacks. \par 
+
+As we've stated in the introduction, the number of unfilled security jobs is huge and,
+with about 230,000 new malware samples produced every day 
+\footnote{Source: https://www.pandasecurity.com/mediacenter/press-releases/all-recorded-malware-appeared-in-2015/} , it's very hard to keep up. \par 
+
+Among 50 security experts we surveyed, about 90\% of them highlighted the lack of a community for the exchange of knowledge and solutions. Most of them also stated that their job is extremely time-sensitive.
+
+\par
+
+This is why we want to make it extremely easier to share technical information on malwares, and to avoid repeating the work that someone else has already done in finding out how things work.
+
+
+\section{What's ahead}
+
+\subsection{The Community}
+
+Our plan is to add several features to the interaction between users.\\
+We need to introduce quality measures for the reports and anlyses made by the users, and we want to allow users to keep in touch with colleagues inside the platform.
+
+\subsection{The Analysis Engine}
+
+One of the main features we want to introduce is the ability to find more general similarities between entire malwares, instead of only comparing single procedures. \\
+
+This would be highly beneficial, as analysts would benefit to great extent of work that has already been done.
+
+\par
+
+We also want to make it easier to identify common functions in stripped binaries (which are much harder to work with), by creating plugins that work in conjunction with the most popular analysis tools.
+
+
+\section{The Team}
+
+Our team is entirely composed of computer engineering students from La Sapienza University of Rome.\par
+We are also part of a CTF team called the TheRomanXpl0it (\textit{https://theromanxpl0it.github.io/}).\par
+
+This is us:
+
+\begin{itemize}
+  \item \textbf{Daniele Cappuccio} - front-end developer
+  \item \textbf{Luca Ferrera} - back-end developer
+  \item \textbf{Andrea Fioraldi} - software engineer
+  \item \textbf{Daniele Paliotta} - software engineer
+  \item \textbf{Luigi Paolo Pileggi} - software engineer
+  \item \textbf{Andrea Tulimiero}  - back-end developer
+\end{itemize}
+
+
+\section{Acknowledgements}
+
+We would like to thank our friends from \textit{TheRomanXpl0it} for the support and for the knowledge they shared with us.\par 
+
+We also want to thank \textit{Camil Demetrescu}, \textit{Daniele Cono D'Elia} and \textit{Emilio Coppa} for their teachings, and for providing us with a stimulating environment in which we could share our passions and ideas.
+
+
+\end{document}
