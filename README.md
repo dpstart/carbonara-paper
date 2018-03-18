@@ -1,2 +1,2 @@
 # carbonara-paper
-Whitepaper source code for [The Carbonara Project](https://carbonaraproject.com/#/).
+Whitepaper source code for [The Carbonara Project](https://carbonara-project.github.io/).
